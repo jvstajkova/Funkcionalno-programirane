@@ -1,0 +1,28 @@
+main = do
+
+   print (c "(())") -- ->True
+   print (c "()((") -- ->False
+
+{-c::[Char]->Bool
+c str = cH str 0
+
+cH::[Char] ->Int->Bool
+cH _ (-1) = False
+cH [] 0 = True
+cH [] _ = False
+cH (x:xs) n = cH xs (n+(if x=='(' then 1 else (-1)))
+-}
+
+   print (f [("Ivan", 6.00), ("Penka", 4.00)])
+f::[(String, Double)]->[String]
+f [] = []
+f db = [name|(name, grade) <-db, grade == maxGrade]
+   where maxGrade = maximum(map snd db)
+
+
+maxGrade ::[(String, Double)]->Double
+maxGrade db = maximum (map snd db)  --snd ==second
+--inache napisano : maximum[g|(_, g)<-db]
+{- mG[(_, g)] = g
+mG((_, g):dbs) =max g (mG dbs)
+-}
