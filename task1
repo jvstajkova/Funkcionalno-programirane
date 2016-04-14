@@ -1,8 +1,8 @@
 main = do
 
-   print (c "(())") -- ->True
-   print (c "()((") -- ->False
-
+   --print (c "(())") -- ->True
+  -- print (c "()((") -- ->False
+   
 {-c::[Char]->Bool
 c str = cH str 0
 
@@ -13,7 +13,7 @@ cH [] _ = False
 cH (x:xs) n = cH xs (n+(if x=='(' then 1 else (-1)))
 -}
 
-   print (f [("Ivan", 6.00), ("Penka", 4.00)])
+  {- print (f [("Ivan", 6.00), ("Penka", 4.00)])
 f::[(String, Double)]->[String]
 f [] = []
 f db = [name|(name, grade) <-db, grade == maxGrade]
@@ -26,3 +26,26 @@ maxGrade db = maximum (map snd db)  --snd ==second
 {- mG[(_, g)] = g
 mG((_, g):dbs) =max g (mG dbs)
 -}
+-}
+--f1::(Int->Int) ->Int 
+
+{-
+--f2::Int->(Int->Int)
+--proizvodna 
+der::(Double->Double)->Double->(Double->Double)
+--((der(\x -> 2*x) 0.0001) 10) -- ->2 
+der f eps = (\x -> ((f (x+eps)) - (f x))/eps)
+{- ((der f 0.01) 10) -> ((\x -> ((f (x+0.01))- (f x))/ 0.01) 10) ->
+(F(10+0.01 ) - (f 10 ))/0.01) ->
+-}
+ --n-ta proizvodna 
+derN::(Double->Double) ->Double ->Int->(Double->Doble)
+derN f _ 0 = f
+derN f eps n = derN(fer f eps) eps (n-1)
+-}
+
+--funkciq, koqto vrushta kompoziciq na 2 funkcii
+comp:: (Double -> Double) -> (Double -> Double) -> (Double -> Double)
+--((comp (\x -> x+2) (\x ->x+1)) 10) ->22
+
+
