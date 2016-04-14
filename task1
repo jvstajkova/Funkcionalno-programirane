@@ -47,5 +47,15 @@ derN f eps n = derN(fer f eps) eps (n-1)
 --funkciq, koqto vrushta kompoziciq na 2 funkcii
 comp:: (Double -> Double) -> (Double -> Double) -> (Double -> Double)
 --((comp (\x -> x+2) (\x ->x+1)) 10) ->22
+comp f g = (\x -> f(g x))
+--comp f g  = f.g  --Haskell pozvolqva izpolzvaneto na "." specialno za kompoziciq
+comp2 :: [(Double->Double)] -> (Double->Double)
+--((comp2 [(\x -> x*2) (\x ->x+1)]) 10) ->22
+comp2 [] = (\x ->x)
+comp2 fs = (\x ->comp2H fs x)
+--comp2 (f:fs) = f.(comp2 fs)
+comp2H::[(Double->Double)] ->Double->Double
+comp2H [] x = x
+comp2H (f:fx) x = f(comp2H fs x)
 
 
