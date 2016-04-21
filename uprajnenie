@@ -41,3 +41,5 @@ store2=[("bread", 1), ("cheese", 2.5), ("bread", 1), ("cheese", 5), ("butter", 2
 --nub [(1, 2), (1, 2), (1, 3)] -> [(1, 2), (1, 3)]
 cheaperAlternative::StoreAvailability->Int
 --[(a, 1.5), (a, 1), (a, 1.2), (b, 1)] -> a->1
+cheaperAlternative ps = length (nub [name | name <- uniques, elem name uniques))])
+   where uniques= map  fst (nub ps)
