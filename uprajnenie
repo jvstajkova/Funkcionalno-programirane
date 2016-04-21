@@ -1,0 +1,20 @@
+main = do
+  -- print(f1 "niz" 5 " !!")
+   
+   
+--zadacha1
+{-f1::String->Int->String->String
+f1 str1 count str2 = str1 ++ concat (replicate (count-1) (str2++str1))
+-}
+
+--zadacha2
+{-f2::Int->String->(String->String)
+f2 count str2 = (\str1 ->f1 str1 count str2) 
+--f2 count str2 str1 = f1 str1 count str2    
+-}
+
+--zadacha3
+{-f3::Int->Int->Int
+f3 a b = a*(b+2)
+f3 1 2 -> 3
+-}
